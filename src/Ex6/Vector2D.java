@@ -21,13 +21,12 @@ public class Vector2D extends Vector{
 
         return Integer.parseInt(cords.split(" ")[0]) * Integer.parseInt(cords2.split(" ")[0])+
         Integer.parseInt(cords2.split(" ")[1]) * Integer.parseInt(cords.split(" ")[1]);
-//        return (x1)*(vector.x1) + (vector.y2)*(y2);
     }
     public double getAngle(Vector2D vector){
         if(vector.getLength() != 0 && getLength() != 0){
             return getScalarProduct(vector)/(getLength() * vector.getLength());
         } else {
-            return 2.0;
+            return -2.0;
         }
     }
 }
