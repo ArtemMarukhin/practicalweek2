@@ -3,7 +3,7 @@ package Ex9;
 public class Rhombuses extends Quadrangle implements Figure{
     double alpha, beta;
 
-    public Rhombuses(int a, String color, double alpha, double beta) {
+    public Rhombuses(int a, double alpha, double beta, String color) {
         super(a, a, color);
         this.alpha = alpha;
         this.beta = beta;
@@ -11,22 +11,22 @@ public class Rhombuses extends Quadrangle implements Figure{
 
     @Override
     public double area() {
-        return Math.pow(a,2)*Math.sin(Math.min(alpha, beta));
+        return a*a*Math.sin(Math.min(Math.toRadians(alpha), Math.toRadians(beta)));
     }
 
     @Override
     public double perimeter() {
-        return 4*a;
+        return 2*(a+b);
     }
 
     @Override
     public double getLargeDiagonal() {
-        return Math.max((2*a*Math.cos(Math.toRadians(Math.min(alpha,beta)/2))), (2*a*Math.sin(Math.toRadians(Math.min(alpha,beta)/2))));
+        return Math.max(a*Math.sqrt(2-2*Math.cos(Math.toRadians(beta))), a*Math.sqrt(2-2*Math.cos(Math.toRadians(alpha))));
     }
 
     @Override
     public double getHeight() {
-        return a*Math.sin(Math.min(alpha, beta)/2);
+        return a*Math.sin(Math.toRadians(alpha));
     }
 
     @Override
